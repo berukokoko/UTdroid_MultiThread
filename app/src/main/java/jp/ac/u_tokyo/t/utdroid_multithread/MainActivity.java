@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.threadHandler).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /* Threadクラスのインスタンスは1回限りしか実行できないので、2回目以上実行してはいけない（強制終了する） */
+                /* この問題を避けるためには、safeThreadの初期化（40〜68行目）を都度ここで行う。 */
                 safeThread.start();
             }
         });
